@@ -35,7 +35,7 @@ public partial class BookStoreDbContext : DbContext
 
         modelBuilder.Entity<Book>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasKey(e => e.Id).HasName("PK__Books__3214EC07AC7CD9C7");
 
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
             entity.Property(e => e.Image).HasMaxLength(50);

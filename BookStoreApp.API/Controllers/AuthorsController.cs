@@ -17,9 +17,9 @@ namespace BookStoreApp.API.Controllers
     {
         private readonly BookStoreDbContext _context;
         private readonly IMapper mapper;
-        private readonly ILogger logger;
+        private readonly ILogger<AuthorsController> logger;
 
-        public AuthorsController(BookStoreDbContext context, IMapper mapper, ILogger logger)
+        public AuthorsController(BookStoreDbContext context, IMapper mapper, ILogger<AuthorsController> logger)
         {
             _context = context;
             this.mapper = mapper;

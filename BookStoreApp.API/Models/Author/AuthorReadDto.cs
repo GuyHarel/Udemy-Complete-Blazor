@@ -1,6 +1,6 @@
 ﻿namespace BookStoreApp.API.Models.Author
 {
-    public class AuthorReadDto
+    public class AuthorReadDto : BaseDto
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }

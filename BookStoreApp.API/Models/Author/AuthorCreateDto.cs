@@ -2,7 +2,7 @@
 
 namespace BookStoreApp.API.Models.Author
 {
-    public class AuthorCreateDto
+    public class AuthorCreateDto : BaseDto
     {
         [Required]
         [StringLength(50)]

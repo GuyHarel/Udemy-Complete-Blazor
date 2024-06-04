@@ -22,14 +22,14 @@ namespace BookStoreApp.API.Controllers
         private readonly UserManager<ApiUser> userManager;
         private readonly IConfiguration configuration;
 
-        public AuthControler( ILogger<AuthControler> logger, IMapper mapper, UserManager<ApiUser> userManager, IConfiguration configuration)
+        public AuthControler(ILogger<AuthControler> logger, IMapper mapper, UserManager<ApiUser> userManager, IConfiguration configuration)
         {
             this.logger = logger;
             this.mapper = mapper;
             this.userManager = userManager;
             this.configuration = configuration;
         }
-        
+
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] UserDto userDto)
         {
@@ -51,30 +51,32 @@ namespace BookStoreApp.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginUserDto userDto)
+        public async Task<ActionResult<AuthResponse>> Login([FromBody] LoginUserDto userDto)
         {
-                var user = await userManager.FindByEmailAsync(userDto.Email.ToUpperInvariant());
-                if (user == null)
-                {
-                    return Unauthorized();
-                }
+            var user = await userManager.FindByEmailAsync(userDto.Email.ToUpperInvariant());
+            var passwordValid = await userManager.CheckPasswordAsync(user, userDto.Password);
 
-                var tokenString = await GenerateJwtToken(user);
+            if (user == null || passwordValid == false)
+            {
+                return Unauthorized(userDto);
+            }
 
-                var result = await userManager.CheckPasswordAsync(user, userDto.Password);
-                if (!result)
-                {
-                    return Unauthorized();
-                }
+            var tokenString = await GenerateJwtToken(user);
+            var response = new AuthResponse
+            {
+                
+                Email = userDto.Email,
+                Token = tokenString,
+                UserId = user.Id
+            };
 
-                return Accepted();
-
+            return response;
         }
 
         private async Task<string> GenerateJwtToken(ApiUser user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:Key"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);   
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var roles = await userManager.GetRolesAsync(user);
             var roleClaims = roles.Select(r => new Claim(ClaimTypes.Role, r)).ToList();
@@ -88,7 +90,7 @@ namespace BookStoreApp.API.Controllers
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 new Claim(CustomClaimTypes.Uid, user.Id)
             };
-            
+
             claims
                 .Union(roleClaims)
                 .Union(userClaims);

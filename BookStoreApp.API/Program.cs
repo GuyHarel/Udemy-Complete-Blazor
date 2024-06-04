@@ -1,6 +1,7 @@
 using BookStoreApp.API;
 using BookStoreApp.API.Configuration;
 using BookStoreApp.API.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -31,6 +32,11 @@ var connectionString = builder.Configuration.GetConnectionString("BookStoreDb");
 builder.Services.AddDbContext<BookStoreDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddAutoMapper(typeof(MapperConfig));
 
+// Sécurité
+
+builder.Services.AddIdentityCore<ApiUser>()
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<BookStoreDbContext>();
 
 var app = builder.Build();
 

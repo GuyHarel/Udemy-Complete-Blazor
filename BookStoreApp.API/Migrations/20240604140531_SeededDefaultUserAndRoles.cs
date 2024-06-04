@@ -27,7 +27,7 @@ namespace BookStoreApp.API.Migrations
                 values: new object[,]
                 {
                     { "1", 0, "0b6ee947-f373-483a-85a5-66e1106d744e", "admin@bookstore.com", true, "System", "Admin", false, null, "ADMIN@BOOKSTORE.COM", "ADMIN@BOOKSTORE.COM", "AQAAAAIAAYagAAAAEN7R8f7GnZ5lKGIMh8/kTfmHIFkrGIb9pc3pvmAS53cYBKhVB6yLL8qUqvdG78RlBA==", null, false, "", false, "admin@bookstore.com" },
-                    { "2", 0, "b7c74476-16b7-4ff6-81e5-eb0e0b582be7", "user@bookstore.com", true, "System", "User", false, null, "USER@BOOKSTORE.COM\"", "USER@BOOKSTORE.COM", "AQAAAAIAAYagAAAAEH6YwuRyejvNxaacD+7wJEJCB0ffJ/8jycPD4YU5a/bvfJHoxGxUHob2L3HR+nUVyA==", null, false, "", false, "user@bookstore.com" }
+                    { "2", 0, "b7c74476-16b7-4ff6-81e5-eb0e0b582be7", "user@bookstore.com", true, "System", "User", false, null, "USER@BOOKSTORE.COM", "USER@BOOKSTORE.COM", "AQAAAAIAAYagAAAAEH6YwuRyejvNxaacD+7wJEJCB0ffJ/8jycPD4YU5a/bvfJHoxGxUHob2L3HR+nUVyA==", null, false, "", false, "user@bookstore.com" }
                 });
 
             migrationBuilder.InsertData(

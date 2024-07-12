@@ -1,6 +1,8 @@
-﻿@using BookStoreApp.Models.User
+﻿@using BookStoreApp.Services
 
 @page "/users/register"
+
+@inject BookStoreAppApiClient httpClient
 
 <h3>Registration</h3>
 
@@ -40,6 +42,6 @@
 
     public async Task HandleRegistration()
     {
-        await Task.Delay(1000);
+        await httpClient.RegisterAsync(RegistrationModel);
     }
 }

@@ -17,12 +17,134 @@
 #pragma warning disable 8625 // Disable "CS8625 Cannot convert null literal to non-nullable reference type"
 #pragma warning disable CS8765 // Nullability of type of parameter doesn't match overridden member (possibly because of nullability attributes).
 
-namespace BookStoreApp.API.Client
+namespace BookStoreApp.Services
 {
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.0.8.0 (NJsonSchema v11.0.1.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class Client
+    public partial interface IBookStoreAppApiClient
+    {
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task RegisterAsync(UserDto body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task RegisterAsync(UserDto body, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<AuthResponse> LoginAsync(LoginUserDto body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<AuthResponse> LoginAsync(LoginUserDto body, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Author>> AuthorsAllAsync();
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Author>> AuthorsAllAsync(System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<AuthorCreateDto> AuthorsPOSTAsync(AuthorCreateDto body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<AuthorCreateDto> AuthorsPOSTAsync(AuthorCreateDto body, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Author> AuthorsGETAsync(int id);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<Author> AuthorsGETAsync(int id, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task AuthorsPUTAsync(int id, Author body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task AuthorsPUTAsync(int id, Author body, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task AuthorsDELETEAsync(int id);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task AuthorsDELETEAsync(int id, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<BookReadOnlyDto>> BooksAllAsync();
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<BookReadOnlyDto>> BooksAllAsync(System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BookCreateDto> BooksPOSTAsync(BookCreateDto body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BookCreateDto> BooksPOSTAsync(BookCreateDto body, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BookDetailsDto> BooksGETAsync(int id);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BookDetailsDto> BooksGETAsync(int id, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task BooksPUTAsync(int id, BookUpdateDto body);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task BooksPUTAsync(int id, BookUpdateDto body, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task BooksDELETEAsync(int id);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task BooksDELETEAsync(int id, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WeatherForecast>> GetWeatherForecastAsync();
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<WeatherForecast>> GetWeatherForecastAsync(System.Threading.CancellationToken cancellationToken);
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.0.8.0 (NJsonSchema v11.0.1.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BookStoreAppApiClient : IBookStoreAppApiClient
     {
 #pragma warning disable 8618
         private string _baseUrl;
@@ -32,7 +154,7 @@ namespace BookStoreApp.API.Client
         private static System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(CreateSerializerSettings, true);
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-        public Client(string baseUrl, System.Net.Http.HttpClient httpClient)
+        public BookStoreAppApiClient(string baseUrl, System.Net.Http.HttpClient httpClient)
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             BaseUrl = baseUrl;

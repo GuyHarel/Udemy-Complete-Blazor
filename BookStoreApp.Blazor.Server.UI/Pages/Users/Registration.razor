@@ -1,16 +1,45 @@
 ﻿@using BookStoreApp.Models.User
 
+@page "/users/register"
+
 <h3>Registration</h3>
 
-    <EditForm Model="RegistrationModel" OnValidSubmit="HandleRegistration">
+<EditForm Model="RegistrationModel" OnValidSubmit="HandleRegistration">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <InputText class="form-control" @bind-Value="RegistrationModel.Email" />
+        <ValidationMessage For="@(() => RegistrationModel.Email)" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="email">First Name</label>
+        <InputText class="form-control" @bind-Value="RegistrationModel.FirstName" />
+        <ValidationMessage For="@(() => RegistrationModel.FirstName)" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="email">Last Name</label>
+        <InputText class="form-control" @bind-Value="RegistrationModel.LastName" />
+        <ValidationMessage For="@(() => RegistrationModel.LastName)" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="email">Password</label>
+        <InputText class="form-control" type="password" @bind-Value="RegistrationModel.Password" />
+        <ValidationMessage For="@(() => RegistrationModel.Password)" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary btn-block">Register</button>
 
-    </EditForm>
+</EditForm>
 
 @code {
     UserDto RegistrationModel = new UserDto();
 
-    public void HandleRegistration()
+    public async Task HandleRegistration()
     {
-        
+        await Task.Delay(1000);
     }
 }

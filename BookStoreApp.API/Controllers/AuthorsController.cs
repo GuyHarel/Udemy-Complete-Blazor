@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookStoreApp.API.Data;
-using BookStoreApp.API.Models.Author;
+using BookStoreApp.Models.Author;
 using AutoMapper;
 
 namespace BookStoreApp.API.Controllers

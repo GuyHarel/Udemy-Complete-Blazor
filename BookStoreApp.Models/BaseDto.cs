@@ -1,4 +1,4 @@
-﻿namespace BookStoreApp.API.Models
+﻿namespace BookStoreApp.Models
 {
     public abstract class BaseDto
     {

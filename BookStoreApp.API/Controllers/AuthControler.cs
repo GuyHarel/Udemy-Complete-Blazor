@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using BookStoreApp.API.Data;
-using BookStoreApp.API.Models.Static;
-using BookStoreApp.API.Models.User;
-using Microsoft.AspNetCore.Http;
+using BookStoreApp.Models.Static;
+using BookStoreApp.Models.User;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;

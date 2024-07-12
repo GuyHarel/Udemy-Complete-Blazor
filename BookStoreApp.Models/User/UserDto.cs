@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BookStoreApp.API.Models.User
+namespace BookStoreApp.Models.User
 {
-    public class LoginUserDto
+    public class UserDto
     {
         [Required]
         [EmailAddress]
@@ -10,5 +10,10 @@ namespace BookStoreApp.API.Models.User
 
         [Required]
         public string Password { get; set; }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+
     }
 }

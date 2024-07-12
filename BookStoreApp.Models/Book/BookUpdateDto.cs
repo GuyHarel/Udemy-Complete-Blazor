@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BookStoreApp.API.Models.Book
+namespace BookStoreApp.Models.Book
 {
     public class BookUpdateDto : BaseDto
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BookStoreApp.API.Models.Author
+namespace BookStoreApp.Models.Author
 {
     public class AuthorCreateDto : BaseDto
     {

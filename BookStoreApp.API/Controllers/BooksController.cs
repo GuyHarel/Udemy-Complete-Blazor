@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BookStoreApp.API.Data;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using BookStoreApp.API.Models.Book;
+using BookStoreApp.Models.Book;
 using Microsoft.AspNetCore.Authorization;
 
 namespace BookStoreApp.API.Controllers

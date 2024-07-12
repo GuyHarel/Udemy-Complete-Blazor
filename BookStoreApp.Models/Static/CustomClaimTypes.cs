@@ -1,4 +1,4 @@
-﻿namespace BookStoreApp.API.Models.Static
+﻿namespace BookStoreApp.Models.Static
 {
     public static class CustomClaimTypes
     {

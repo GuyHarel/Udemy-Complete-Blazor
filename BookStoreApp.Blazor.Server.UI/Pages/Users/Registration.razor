@@ -2,7 +2,8 @@
 
 @page "/users/register"
 
-@inject BookStoreAppApiClient httpClient
+@inject BookStoreApiClientFactory httpClient
+@inject IHttpClientFactory httpClientFactory
 
 <h3>Registration</h3>
 
@@ -42,6 +43,7 @@
 
     public async Task HandleRegistration()
     {
+        var httpClient = new BookStoreApiClientFactory(httpClientFactory).CreateApiClient();
         await httpClient.RegisterAsync(RegistrationModel);
     }
 }
